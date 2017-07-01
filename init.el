@@ -48,6 +48,8 @@ values."
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
+     (spacemacs-layouts :variables layouts-enable-autosave t
+                        layouts-autosave-delay 300)
      ;; spell-checking
      ;; syntax-checking
      ;; version-control
@@ -323,7 +325,11 @@ you should place your code here."
 ;; look
 (setq-default line-spacing 0.2)
 (setq powerline-default-separator 'utf-8)
-)
+(setq initial-frame-alist '(
+                            (top . 0)
+                            (left . 850)
+                            (width . 90)
+                            (fullscreen . fullheight))))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
