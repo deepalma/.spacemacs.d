@@ -1,7 +1,6 @@
 ;; -*- mode: emacs-lisp -*-
 ;; This file is loaded by Spacemacs at startup.
 ;; It must be stored in your home directory.
-
 (defun dotspacemacs/layers ()
   "Configuration Layers declaration.
 You should not put any user code in this function besides modifying the variable
@@ -51,11 +50,9 @@ values."
             shell-default-height 30
             shell-default-position 'bottom)
      ;; spell-checking
+
      (syntax-checking :variables
                       syntax-checking-enable-tooltips nil)
-     (spacemacs-layouts :variables
-                        layouts-enable-autosave t
-                        layouts-autosave-delay 300)
      ;; version-control
      )
    ;; List of additional packages that will be installed without being
@@ -313,6 +310,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
+(move-text-default-bindings)
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
 This is the place where most of your configurations should be done. Unless it is
@@ -324,7 +322,6 @@ you should place your code here."
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq clojure-enable-fancify-symbols t)
-(move-text-default-bindings)
 ;; Turn off the tildes in the fringe
 (global-vi-tilde-fringe-mode -1)
 ;; look
