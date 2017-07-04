@@ -363,6 +363,7 @@ you should place your code here."
  '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#41728e"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
  '(jdee-db-spec-breakpoint-face-colors (cons "#0d0d0d" "#5a5b5a"))
+ '(ns-right-alternate-modifier (quote none))
  '(org-ellipsis "  ")
  '(org-fontify-done-headline t)
  '(org-fontify-quote-and-verse-blocks t)
