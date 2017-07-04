@@ -136,7 +136,7 @@ values."
    dotspacemacs-themes '(base16-oceanicnext
                          spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
-   dotspacemacs-colorize-cursor-according-to-state t
+   dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    dotspacemacs-default-font '("Operator Mono"
@@ -355,6 +355,7 @@ you should place your code here."
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(cursor-type (quote bar))
  '(evil-want-Y-yank-to-eol nil)
  '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#41728e"))
  '(jdee-db-requested-breakpoint-face-colors (cons "#0d0d0d" "#b5bd68"))
