@@ -335,6 +335,8 @@ you should place your code here."
 (setq clojure-enable-fancify-symbols t)
 ;; Turn off the tildes in the fringe
 (global-vi-tilde-fringe-mode -1)
+;; Enable move text bindings
+(move-text-default-bindings)
 ;; look
 (setq-default line-spacing 0.2)
 (setq powerline-default-separator 'utf-8)
@@ -355,6 +357,7 @@ you should place your code here."
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#0a0814" "#f2241f" "#67b11d" "#b1951d" "#4f97d7" "#a31db1" "#28def0" "#b2b2b2"])
+ '(blink-cursor-mode nil)
  '(cursor-type (quote bar))
  '(evil-want-Y-yank-to-eol nil)
  '(jdee-db-active-breakpoint-face-colors (cons "#0d0d0d" "#41728e"))
@@ -372,4 +375,4 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(hl-line ((t (:inherit highlight :background "gold2" :foreground "gray30")))))
+ '(hl-line ((t (:inherit highlight :background "#26353E")))))
