@@ -328,6 +328,8 @@ you should place your code here."
                          "--parser" "typescript"
                          ))
 
+(add-hook 'tide-mode-hook 'prettier-js-mode)
+
 ;; Fix tab spacing
 (global-set-key (kbd "TAB") 'tab-to-tab-stop)
 ;;; scroll one line at a time (less "jumpy" than defaults)
