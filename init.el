@@ -47,9 +47,7 @@ values."
      git
      ;; markdown
      ;; org
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
+     shell
      ;; spell-checking
 
      (syntax-checking :variables
@@ -109,7 +107,7 @@ values."
    ;; with `:variables' keyword (similar to layers). Check the editing styles
    ;; section of the documentation for details on available variables.
    ;; (default 'vim)
-   dotspacemacs-editing-style 'emacs
+   dotspacemacs-editing-style 'hybrid
    ;; If non nil output loading progress in `*Messages*' buffer. (default nil)
    dotspacemacs-verbose-loading nil
    ;; Specify the startup banner. Default value is `official', it displays
@@ -140,7 +138,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state nil
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Operator Mono"
+   dotspacemacs-default-font '("Hasklig"
                                :size 16
                                :weight normal
                                :width normal
@@ -236,7 +234,7 @@ values."
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
-   dotspacemacs-maximized-at-startup nil
+   dotspacemacs-maximized-at-startup t
    ;; A value from the range (0..100), in increasing opacity, which describes
    ;; the transparency level of a frame when it's active or selected.
    ;; Transparency can be toggled through `toggle-transparency'. (default 90)
@@ -328,9 +326,12 @@ you should place your code here."
                          ))
 
 (add-hook 'tide-mode-hook 'prettier-js-mode)
-
+(setq tide-tsserver-executable "~/ttl/MobileWeb/node_modules/typescript/bin/tsserver")
 ;; Fix tab spacing
 (global-set-key (kbd "TAB") 'tab-to-tab-stop)
+;; Fix for prevent yanking when clicking on links
+(add-hook 'spacemacs-buffer-mode-hook (lambda ()
+ (set (make-local-variable 'mouse-1-click-follows-link) nil)))
 ;;; scroll one line at a time (less "jumpy" than defaults)
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two lines at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
@@ -343,11 +344,12 @@ you should place your code here."
 ;; look
 (setq-default line-spacing 0.2)
 (setq powerline-default-separator 'utf-8)
-(setq initial-frame-alist '(
-                            (top . 0)
-                            (left . 850)
-                            (width . 90)
-                            (fullscreen . fullheight))))
+;; (setq initial-frame-alist '(
+;;                            (top . 0)
+;;                            (left . 850)
+;;                            (width . 90)
+;;                           (fullscreen . fullheight)))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -373,7 +375,7 @@ you should place your code here."
  '(org-fontify-whole-heading-line t)
  '(package-selected-packages
    (quote
-    (markdown-preview-mode mmm-mode markdown-toc markdown-mode gh-md dtrt-indent git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor prettier-js base16-theme doom-themes spacegray-theme tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode haml-mode emmet-mode company-web web-completion-data web-mode seq queue clojure-mode flycheck-pos-tip pos-tip fuzzy company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete tide typescript-mode flycheck unfill mwim color-theme-sanityinc-tomorrow zen-and-art-theme oceanic-theme clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
+    (js-import spotify helm-spotify-plus markdown-preview-mode mmm-mode markdown-toc markdown-mode gh-md dtrt-indent git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter diff-hl smeargle orgit magit-gitflow gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link evil-magit magit magit-popup git-commit with-editor prettier-js base16-theme doom-themes spacegray-theme tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode haml-mode emmet-mode company-web web-completion-data web-mode seq queue clojure-mode flycheck-pos-tip pos-tip fuzzy company-tern dash-functional tern company-statistics company clojure-snippets auto-yasnippet ac-ispell auto-complete tide typescript-mode flycheck unfill mwim color-theme-sanityinc-tomorrow zen-and-art-theme oceanic-theme clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider xterm-color shell-pop multi-term eshell-z eshell-prompt-extras esh-help web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode ws-butler winum which-key wgrep volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline smex restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint ivy-hydra info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-make helm helm-core google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump popup f s diminish define-word counsel-projectile projectile pkg-info epl counsel swiper ivy column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash async aggressive-indent adaptive-wrap ace-window ace-link avy))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
