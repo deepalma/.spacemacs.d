@@ -336,7 +336,7 @@ you should place your code here."
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 1))) ;; two lines at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq clojure-enable-fancify-symbols t)
+(setq clojure-enable-fancify-symbols nil)
 ;; Turn off the tildes in the fringe
 (global-vi-tilde-fringe-mode -1)
 ;; Enable move text bindings
